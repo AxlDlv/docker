@@ -1,5 +1,7 @@
 # Jenkins docker
 
+*In this Dockerfile, i add the library to build docker image.*
+
 Launch the jenkins docker :
 ```
 docker run -d -p 49001:8080 -t jenkins/jenkins
