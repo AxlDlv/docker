@@ -27,7 +27,7 @@ add-apt-repository \
    $(lsb_release -cs) \
    stable" 
 
-# Update Cache
+# Update Cache and search docker-ce
 RUN apt-get update
 RUN apt-cache search docker-ce
 
