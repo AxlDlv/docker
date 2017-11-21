@@ -1,9 +1,22 @@
-FROM jenkins:latest
+FROM jenkins/jenkins:2.91
 
 MAINTAINER Axel
 
-RUN yum apt-get update && \
-yum apt-get -y install apt-transport-https \
+# use Root user
+USER root
+
+# prerequisites for docker
+RUN apt-get update \
+    && apt-get -y install \
+        apt-transport-https \
+        ca-certificates \
+        curl \
+        software-properties-common
+
+
+# docker repos
+RUN apt-get update && \
+ apt-get -y install apt-transport-https \
      ca-certificates \
      curl \
      gnupg2 \
@@ -12,8 +25,20 @@ curl -fsSL https://download.docker.com/linux/$(. /etc/os-release; echo "$ID")/gp
 add-apt-repository \
    "deb [arch=amd64] https://download.docker.com/linux/$(. /etc/os-release; echo "$ID") \
    $(lsb_release -cs) \
-   stable" && \
-yum apt-get update && \
-yum apt-get -y install docker-ce
+   stable" 
 
+# Update Cache
+RUN apt-get update
+RUN apt-cache search docker-ce
+
+# docker
+RUN apt-get -y install docker-ce
+
+# give jenkins docker rights
+RUN usermod -aG docker jenkins
+
+# Use Jenkins user
+USER jenkins
+
+# Expose on 49001 (local) from 8080 (Jenkins)
 EXPOSE 49001
