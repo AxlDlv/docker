@@ -1,10 +1,14 @@
-# Jenkins docker
+# Jenkins 2.91 Docker Image
 
 *In this Dockerfile, i add the library to build docker image.*
 
+Build the image :
+```
+docker build --rm -t axeldlv/ownjenkins:1 .
+```
 Launch the jenkins docker :
 ```
-docker run -d -p 49001:8080 -t jenkins/jenkins
+docker run -d -p 49001:8080 -t axeldlv/ownjenkins:1
 ```
 Add a volume :
 ```
