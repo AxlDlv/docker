@@ -1,6 +1,6 @@
 FROM jenkins/jenkins:2.91
 
-MAINTAINER Axel
+MAINTAINER AxelDlv
 
 # use Root user
 USER root
