@@ -5,7 +5,7 @@ MAINTAINER Axel
 # use Root user
 USER root
 
-# prerequisites for docker
+# Prerequisites for docker
 RUN apt-get update \
     && apt-get -y install \
         apt-transport-https \
@@ -14,7 +14,7 @@ RUN apt-get update \
         software-properties-common
 
 
-# docker repos
+# Docker repos
 RUN apt-get update && \
  apt-get -y install apt-transport-https \
      ca-certificates \
