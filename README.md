@@ -15,3 +15,5 @@ Add a volume :
 add -v $PWD/jenkins:/var/jenkins_home
 ```
 To use completely java build jenkins, we need to add JDK 8 and Maven 3.5.0
+
+Hub Docker : https://hub.docker.com/r/axldlv/dockerjenkins/
