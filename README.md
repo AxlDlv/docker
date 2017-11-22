@@ -4,11 +4,11 @@
 
 Build the image :
 ```
-docker build --rm -t axeldlv/ownjenkins:1 .
+docker build --rm -t axldlv/dockerjenkins:1 .
 ```
 Launch the jenkins docker :
 ```
-docker run -d -p 49001:8080 -t axeldlv/ownjenkins:1
+docker run -d -p 49001:8080 -t axldlv/dockerjenkins:1
 ```
 Add a volume :
 ```
